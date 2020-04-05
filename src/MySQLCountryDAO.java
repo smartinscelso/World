@@ -7,12 +7,12 @@ import java.util.*;
 public class MySQLCountryDAO implements CountryDAO {
 
     private DataSourceSingleton dSource = DataSourceSingleton.getIntance();
-    private Country country;
+     
 
     // METHOD 1: GET ALL COUNTRIES
     @Override
     public ArrayList<Country> getCountries() {
-
+        Country country;
         // CREATE THE ARRAYLIST TO PUT ALL THE CUSTOMERS
         // THAT ARE GOING TO BE RETURNED
         ArrayList<Country> countries = new ArrayList<>();
@@ -60,7 +60,7 @@ public class MySQLCountryDAO implements CountryDAO {
 
     @Override
     public Country searchCountryByCode(String cCode) {
-
+        Country country = null;
         // CREATING THE OBJECT THAT WE'RE GOING TO RETURN
         //Country country = null;
 
@@ -105,7 +105,7 @@ public class MySQLCountryDAO implements CountryDAO {
     public Country searchCountryByName(String name) {
 
         // CREATING THE OBJECT THAT WE'RE GOING TO RETURN
-
+        Country country = null;
         // THIS METHOD IS IN CHAGE OF CREATING THE QUERY
         String query = "select * from country where Name = '" + name + "'";
 
