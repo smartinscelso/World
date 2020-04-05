@@ -1,3 +1,4 @@
+package database;
 
 public class Country {
 
@@ -7,12 +8,12 @@ public class Country {
     private float surfaceArea;
     private String headOfState;
 
-    Country(String cCode, String name, String continent, float surfaceArea, String headOfState ) {
-        this.cCode = cCode; //builder.cCode;
-        this.name = name;       //builder.name;
-        this.continent = continent;      //builder.continent;
-        this.surfaceArea = surfaceArea;           //builder.surfaceArea;
-        this.headOfState = headOfState;
+    private Country(BuilderCountry builder) {
+        this.cCode = builder.cCode;
+        this.name = builder.name;
+        this.continent = builder.continent;
+        this.surfaceArea = builder.surfaceArea;
+        this.headOfState = builder.headOfState;
     }
 
     public String getCode() {
@@ -39,7 +40,7 @@ public class Country {
     }
 
     public void setContinent(String continent) {
-
+        this.continent = continent;
     }
 
     public float getArea() {
@@ -58,7 +59,7 @@ public class Country {
         this.headOfState = headOfState;
     }
 
-    /*public static class BuilderCountry {
+    public static class BuilderCountry {
 
         private String cCode;
         private String name;
@@ -66,58 +67,25 @@ public class Country {
         private float surfaceArea;
         private String headOfState;
 
-        public BuilderCountry(String cCode, String name, String continent) {
+        public BuilderCountry(String cCode, String name) {
             this.cCode = cCode;
             this.name = name;
-            this.continent = "Asia";
-            this.surfaceArea = 0.0f;
-            this.headOfState = null;
+            //this.continent = "Asia";
+            //this.surfaceArea = 0.0f;
+            //this.headOfState = null;
         }
-
-        public String getCode() {
-            return cCode;
-        }
-
-        public BuilderCountry setCode(String cCode) {
-            this.cCode = cCode;
-            return this;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public BuilderCountry setName(String name) {
-            this.name = name;
-            return this;
-        }
-
-        public String getContinent() {
-            Continent valueOf = Continent.valueOf(continent);
-            continent = valueOf.toString();
-            return continent;
-
-        }
-
-        public BuilderCountry setContinent(String continent) {
+        
+        public BuilderCountry withContinent (String continent){
             this.continent = continent;
             return this;
         }
 
-        public float getArea() {
-            return surfaceArea;
-        }
-
-        public String getHeadOfState() {
-            return headOfState;
-        }
-
-        public BuilderCountry setSurfaceArea(float surfaceArea) {
+        public BuilderCountry withArea(float surfaceArea) {
             this.surfaceArea = surfaceArea;
             return this;
         }
-
-        public BuilderCountry setHeadOfState(String headOfState) {
+        
+         public BuilderCountry withHeadOfState(String headOfState) {
             this.headOfState = headOfState;
             return this;
         }
@@ -125,7 +93,7 @@ public class Country {
         public Country build() {
             return new Country(this);
         }
-    }*/
+    }
 
     @Override
     public String toString() {

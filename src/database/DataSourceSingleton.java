@@ -1,8 +1,10 @@
+package database;
 
 import java.sql.*;
 
 public class DataSourceSingleton {
 
+    //Singleton only instance
     private static DataSourceSingleton instance;
     // THIS PART OF THE CODE REMAINS THE SAME
     private String db = "jdbc:mysql://52.50.23.197:3306/world";
@@ -14,7 +16,7 @@ public class DataSourceSingleton {
     private Connection conn;
     private Statement stmt;
 
-    public DataSource() {
+    private DataSourceSingleton() {
 
         // NOW THE CONSTRUCTOR ONLY HAS TO CREATE THE CONNECTION 
         // AND THE STATEMENT
@@ -40,6 +42,15 @@ public class DataSourceSingleton {
         } catch (Exception e) {
             System.out.println(e);
         }
+    }
+
+    // Singleton Lazy implamentation method
+    public static DataSourceSingleton getIntance() {
+        if (instance == null) {
+            instance = new DataSourceSingleton();
+        }
+
+        return instance;
     }
 
     // THIS IS GOING TO BE A GENERIC METHOD TO DO
@@ -89,7 +100,5 @@ public class DataSourceSingleton {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
     }
-
 }

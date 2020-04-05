@@ -3,15 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/junio/Dropbox/CCT/Semester%206/Object%20Oriented%20with%20Design%20Patterns/CA1/World/src/View.java</file>
-            <file>file:/C:/Users/junio/Dropbox/CCT/Semester%206/Object%20Oriented%20with%20Design%20Patterns/CA1/World/src/Database/Country.java</file>
-            <file>file:/C:/Users/junio/Dropbox/CCT/Semester%206/Object%20Oriented%20with%20Design%20Patterns/CA1/World/src/Menu.java</file>
-            <file>file:/C:/Users/junio/Dropbox/CCT/Semester%206/Object%20Oriented%20with%20Design%20Patterns/CA1/World/src/MySQLCountryDAO.java</file>
-            <file>file:/C:/Users/junio/Dropbox/CCT/Semester%206/Object%20Oriented%20with%20Design%20Patterns/CA1/World/src/enums/NewClass.java</file>
-            <file>file:/C:/Users/junio/Dropbox/CCT/Semester%206/Object%20Oriented%20with%20Design%20Patterns/CA1/World/src/CountryDAO.java</file>
-            <file>file:/C:/Users/junio/Dropbox/CCT/Semester%206/Object%20Oriented%20with%20Design%20Patterns/CA1/World/src/Database/DataSource.java</file>
-            <file>file:/C:/Users/junio/Dropbox/CCT/Semester%206/Object%20Oriented%20with%20Design%20Patterns/CA1/World/src/World.java</file>
-            <file>file:/C:/Users/junio/Dropbox/CCT/Semester%206/Object%20Oriented%20with%20Design%20Patterns/CA1/World/src/enums/Continent.java</file>
+            <file>file:/C:/Users/junio/Dropbox/CCT/Semester%206/Object%20Oriented%20with%20Design%20Patterns/World/src/enums/Continent.java</file>
+            <file>file:/C:/Users/junio/Dropbox/CCT/Semester%206/Object%20Oriented%20with%20Design%20Patterns/World/src/database/DataSourceSingleton.java</file>
+            <file>file:/C:/Users/junio/Dropbox/CCT/Semester%206/Object%20Oriented%20with%20Design%20Patterns/World/src/database/Country.java</file>
+            <file>file:/C:/Users/junio/Dropbox/CCT/Semester%206/Object%20Oriented%20with%20Design%20Patterns/World/src/Menu.java</file>
+            <file>file:/C:/Users/junio/Dropbox/CCT/Semester%206/Object%20Oriented%20with%20Design%20Patterns/World/src/MySQLCountryDAO.java</file>
+            <file>file:/C:/Users/junio/Dropbox/CCT/Semester%206/Object%20Oriented%20with%20Design%20Patterns/World/src/World.java</file>
+            <file>file:/C:/Users/junio/Dropbox/CCT/Semester%206/Object%20Oriented%20with%20Design%20Patterns/World/src/CountryDAO.java</file>
         </group>
     </open-files>
 </project-private>

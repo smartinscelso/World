@@ -1,3 +1,4 @@
+import database.Country;
 import java.util.ArrayList;
 
 public interface CountryDAO {
