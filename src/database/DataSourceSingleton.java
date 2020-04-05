@@ -2,26 +2,30 @@ package database;
 
 import java.sql.*;
 
-public class DataSourceSingleton {
+/**
+ * Referencing: Code modified from DataSource.java given in class by @apont
+ * Some Comments were kept fro the original Code.
+ * Singleton Pattern implemented here.
+ * @author celsoM_2017216
+ */
 
-    //Singleton only instance
+// Singleton Class with Lazy Implementation method
+public class DataSourceSingleton {
+    
+    // Singleton only instance
     private static DataSourceSingleton instance;
-    // THIS PART OF THE CODE REMAINS THE SAME
+    // Global information for external Database connection
     private String db = "jdbc:mysql://52.50.23.197:3306/world";
     private String un = "cctstudent";
     private String pw = "Pass1234!";
-    //private static DataSource instance = new DataSource();
-    // NOW I'M MAKING THIS GUYS GLOBAL, TO BE ABLE TO ACCESS THEM
-    // FROM ANY OF THE METHODS
     private Connection conn;
     private Statement stmt;
 
     private DataSourceSingleton() {
-
+        
         // NOW THE CONSTRUCTOR ONLY HAS TO CREATE THE CONNECTION 
         // AND THE STATEMENT
         try {
-
             // Get a connection to the database
             conn = DriverManager.getConnection(db, un, pw);
 
@@ -46,6 +50,7 @@ public class DataSourceSingleton {
 
     // Singleton Lazy implamentation method
     public static DataSourceSingleton getIntance() {
+        // initialize Instance if null
         if (instance == null) {
             instance = new DataSourceSingleton();
         }
@@ -63,7 +68,6 @@ public class DataSourceSingleton {
             rs = stmt.executeQuery(query);
         } catch (SQLException e) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
         }
 
         return rs;
@@ -83,7 +87,6 @@ public class DataSourceSingleton {
             return true;
         } catch (SQLException e) {
 
-            e.printStackTrace();
             return false;
         }
 
@@ -98,7 +101,6 @@ public class DataSourceSingleton {
 
         } catch (SQLException e) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
         }
     }
 }

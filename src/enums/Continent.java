@@ -1,9 +1,10 @@
 package enums;
 
 /**
- *
- * @author junio
+ * 
+ * @author celsoM_2017216
  */
+
 public enum Continent {
     ASIA("Asia"),
     NORTH_AMERICA("North America"),
@@ -13,13 +14,14 @@ public enum Continent {
     OCEANIA("Oceania"),
     ANTARCTICA("Antarctica");
 
-    private String continent;
+    private String continent; //variable to hold enum value
 
     Continent(String continent) {
         this.continent = continent;
     }
 
-    @Override
+    //Overriding to get continent Enum value
+    @Override 
     public String toString() {
         return this.continent;
     }

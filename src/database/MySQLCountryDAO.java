@@ -1,14 +1,23 @@
+package database;
 
-import database.DataSourceSingleton;
-import database.Country;
+import earth.Country;
+import interfaces.CountryDAO;
 import java.sql.*;
 import java.util.*;
 
-public class MySQLCountryDAO implements CountryDAO {
+/**
+ * Referencing: Code modified from MySQLCustomerDAO.java given in class by @apont.
+ * @author celsoM_2017216
+ */
 
-    private DataSourceSingleton dSource = DataSourceSingleton.getIntance();
+// CLASS FOR INTERACTION WITH DATASOURCE
+// .closing(); removed from methods. The only way to close DB Connection is Quiting program on MENU.
+// Close DB method added here.
+public class MySQLCountryDAO implements CountryDAO { // Implements interface with pre-set methods
+
+    // private Datasource instantiation to be used only inside this class
+    private DataSourceSingleton dSource = DataSourceSingleton.getIntance(); 
      
-
     // METHOD 1: GET ALL COUNTRIES
     @Override
     public ArrayList<Country> getCountries() {
@@ -36,14 +45,14 @@ public class MySQLCountryDAO implements CountryDAO {
                 float surfaceArea = rs.getFloat(4);
                 String headOfState = rs.getString(5);
 
+                // New country is created using Builder Pattern so the attributes can be independently added to Country
                 country = new Country.BuilderCountry(cCode, name)
                         .withContinent(continent)
                         .withArea(surfaceArea)
                         .withHeadOfState(headOfState)
                         .build();
-                //Person person = new Person.Builder("Kevin", "G").country("Deutschland").build();
-                //country = new Country(cCode, name, continent, surfaceArea, headOfState);
-                countries.add(country);
+                
+                countries.add(country); //add to ArrayList
             }
 
             // CLOSING THE CONNECTION TO THE DATABASE
@@ -51,18 +60,18 @@ public class MySQLCountryDAO implements CountryDAO {
 
         } catch (SQLException e) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
+
         }
 
-        // RETURN THE ARRAYLIST WITH ALL THE CUSTOMERS
+        // RETURN THE ARRAYLIST WITH ALL COUNTRIES
         return countries;
     }
-
+    
+    // METHOD 2: SEARCH COUNRY BY COUNTRY-CODE
     @Override
     public Country searchCountryByCode(String cCode) {
-        Country country = null;
         // CREATING THE OBJECT THAT WE'RE GOING TO RETURN
-        //Country country = null;
+        Country country = null;
 
         // THIS METHOD IS IN CHAGE OF CREATING THE QUERY
         String query = "select * from country where Code = '" + cCode + "'";
@@ -82,25 +91,21 @@ public class MySQLCountryDAO implements CountryDAO {
             float surfaceArea = rs.getFloat(4);
             String headOfState = rs.getString(5);
 
+            // New country is created using Builder Pattern so the attributes can be independently added to Country
             country = new Country.BuilderCountry(cCode, name)
                     .withContinent(continent)
                     .withArea(surfaceArea)
                     .withHeadOfState(headOfState)
                     .build();
-
-            //country = new Country(cCode, name, continent, surfaceArea, headOfState);
-            //country = new Country.BuilderCountry(cCode, name, continent).setSurfaceArea(surfaceArea).setHeadOfState(headOfState).build();
-            // CLOSING THE CONNECTION TO THE DATABASE
-            
-
         } catch (SQLException e) {
             // TODO Auto-generated catch block
 
         }
-        // RETURN THE CUSTOMER 
+        // RETURN THE COUNTRY 
         return country;
     }
-
+    
+    // METHOD 3: SEARCH COUNRY BY NAME
     @Override
     public Country searchCountryByName(String name) {
 
@@ -122,22 +127,20 @@ public class MySQLCountryDAO implements CountryDAO {
             String continent = rs.getString(3);
             float surfaceArea = rs.getFloat(4);
             String headOfState = rs.getString(5);
-
+            
+            // New country is created using Builder Pattern so the attributes can be independently added to Country
             country = new Country.BuilderCountry(cCode, name)
                     .withContinent(continent)
                     .withArea(surfaceArea)
                     .withHeadOfState(headOfState)
                     .build();
-            // country = new Country(cCode, name, continent, surfaceArea, headOfState);
-            // CLOSING THE CONNECTION TO THE DATABASE
-            //dSource.closing();
 
         } catch (SQLException e) {
             // TODO Auto-generated catch block
 
         }
 
-        // RETURN THE CUSTOMER
+        // RETURN THE COUNTRY
         return country;
     }
 
@@ -164,7 +167,12 @@ public class MySQLCountryDAO implements CountryDAO {
         return result;
     }
     
-    public void closeDBConnecction(){
+    /* METHOD 4: Close DB Connection
+       It was removed from methods 1,2,3 because as the program keeps running,
+       the connection needs to keep opened untill the end of the program.
+       Change done because of SQLException: The statement is closed.
+    */
+       public void closeDBConnecction(){
         dSource.closing();
     }
 
