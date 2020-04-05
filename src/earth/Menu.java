@@ -37,6 +37,7 @@ public final class Menu {
         int choice = 0;
         // do-while loop to bring the user back to menu after methods execution
         do {
+            
             try {
                 System.out.println(mainMenu);
                 System.out.print("Choice: ");
@@ -143,9 +144,9 @@ public final class Menu {
                     + "[6] Oceania \n"
                     + "[7] South America \n"
             );
-            input = scanner.nextInt();
+            
             // do-while loop so to force right user input
-            do {
+                input = scanner.nextInt();
                 // Switch add enum value to variable continent
                 switch (input) {
                     case 1:
@@ -174,7 +175,7 @@ public final class Menu {
                         System.out.println("Please, try again");
                         break;
                 }
-            } while (input != 7);
+            
             System.out.println("Enter enter the Surface Area: ");
             area = scanner.nextFloat();
             System.out.println("Enter the Head of State: ");

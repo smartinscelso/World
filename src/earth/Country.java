@@ -86,9 +86,9 @@ public class Country{
         public BuilderCountry(String cCode, String name) {
             this.cCode = cCode;
             this.name = name;
-            //this.continent = "Asia";
-            //this.surfaceArea = 0.0f;
-            //this.headOfState = null;
+            this.continent = "Asia";
+            this.surfaceArea = 0.0f;
+            this.headOfState = null;
         }
         
         // SETTERS. Using WITH to differ name from Setters in  OuterClass
